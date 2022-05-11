@@ -1,11 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
 
 :root {
+  --navbar-bg-color: hsl(0, 1%, 11%);
   --main-bg-color: #252424;
   
   --high-font-color: rgba(255, 239, 217, 0.87);
   --medium-font-color: rgba(255, 239, 217, 0.6);
   --low-font-color: rgba(255, 239, 217, 0.38);
+
+  --rainbow-gradient:
+                rgba(255,0,0,0.75) 0%,
+                rgba(255,255,0,0.75) 12.5%, 
+                rgba(0,255,0,0.75) 25%, 
+                rgba(0,255,128,0.75) 37.5%, 
+                rgba(0,255,255,0.75) 50%, 
+                rgba(0,128,255,0.75) 62.5%, 
+                rgba(0,0,255,0.75) 75%, 
+                rgba(255,0,255,0.75) 87.5%, 
+                rgba(255,0,0,0.75) 100%;
 }
 
 body {
@@ -30,6 +42,27 @@ a {
 
 a:hover {
   color: var(--low-font-color);
+}
+
+.btn {
+  background-color: var(--navbar-bg-color);
+  display: flex;
+  margin-top: 1vw;
+  justify-content: center;
+  align-items: center;
+  border: double 4px transparent;
+  border-radius: 80px;
+  background-image: linear-gradient(var(--navbar-bg-color), var(--navbar-bg-color)),
+  radial-gradient(circle at top left, #f00,#3020ff);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  background-size: 200%;
+  transition: 0.5s;
+}
+
+.btn:hover {
+  background-position: right center;
+  transform: scale(0.95);
 }
 
 footer{
