@@ -1,0 +1,241 @@
+/*
+====================
+🗿 Dominik Brewka 8c
+====================
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
+
+:root {
+    /* --main-bg-color: #121212;
+    --navbar-bg-color: #1a1a1a; */
+    --main-bg-color: #252424;
+    --navbar-bg-color: hsl(0, 1%, 11%);
+    
+    --high-font-color: rgba(255, 239, 217, 0.87);
+    --medium-font-color: rgba(255, 239, 217, 0.6);
+    --low-font-color: rgba(255, 239, 217, 0.38);
+
+    --rainbow-height: 0.5vh;
+    --navbar-height: 8vh;
+    --rainbow-gradient:
+                rgba(255,0,0,0.75) 0%,
+                rgba(255,255,0,0.75) 12.5%, 
+                rgba(0,255,0,0.75) 25%, 
+                rgba(0,255,128,0.75) 37.5%, 
+                rgba(0,255,255,0.75) 50%, 
+                rgba(0,128,255,0.75) 62.5%, 
+                rgba(0,0,255,0.75) 75%, 
+                rgba(255,0,255,0.75) 87.5%, 
+                rgba(255,0,0,0.75) 100%;
+}
+
+* {
+    transition: ease-in-out 0.05s;
+    padding: 0; margin: 0;
+    color: var(--medium-font-color);
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--main-bg-color);
+    box-sizing: border-box;
+    font-size: 2vmin;
+    font-family: 'Fira Mono', monospace;
+}
+
+
+/* https://stackoverflow.com/questions/47391462/how-to-do-transition-effects-between-two-html-pages */
+.main, #navbar {
+    opacity: 0;
+    transition: opacity .25s;
+}
+
+.main {
+    height: 100%;
+    width: 100%;
+}
+
+.content {
+    width: 50%;
+    margin: auto;
+    margin-top: 3vw;
+    text-align: center;
+    color: #1a2539;
+}
+
+a { text-decoration: none; color: var(--high-font-color);}
+
+a p:hover, a:hover { color: var(--low-font-color); }
+a h1:hover{ color: var(--medium-font-color); }
+
+b, strong, h1, h2, h3, h4, h5, h6 {
+    color: var(--high-font-color);
+}
+
+.source {
+    font-weight: bold;
+    font-size: 1.5vmin;
+}
+
+#navbar {
+    background-color: var(--navbar-bg-color);
+    text-align: center;
+    overflow: hidden;
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+    height: var(--navbar-height);
+}
+
+/* https://codepen.io/unnegative/pen/dVwYBq */
+/* https://cssgradient.io/ */
+/* https://stackoverflow.com/questions/34257000/css-horizontal-line-animation-gradient-colors */
+#rainbow-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    border: 0;
+    height: var(--rainbow-height);
+    animation: moving-bg 5s linear infinite;
+    transition: .25s;
+    background: linear-gradient(to right, var(--rainbow-gradient));
+    background-size: 200%;
+}
+
+.btn-box {
+    background-color: var(--navbar-bg-color);
+    display: grid;
+    grid-gap: 1vw;
+    grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr));
+    margin-top: 3vw;
+    padding: 1vw;
+    border-radius: 2vw;
+    box-shadow: 0 0 0.2vw 0.2vw rgba(0, 0, 0, 0.4);
+}
+
+.img-box {
+    background-color: var(--navbar-bg-color);
+    margin-top: 2vw;
+    margin-bottom: 3vw;
+    padding: 1vw;
+    border-radius: 2vw;
+    box-shadow: 0 0 0.2vw 0.2vw rgba(0, 0, 0, 0.4);
+}
+
+img {
+    margin-bottom: 1vw;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 2vw;
+    border: 0.1vh solid rgba(0, 0, 0, 0.1);
+}
+
+
+.rainbow-btn, #scroll-btn {
+    height: 10vh;
+    border: double 4px transparent;
+    border-radius: 30px;
+    background-image: linear-gradient(var(--main-bg-color), var(--main-bg-color)), linear-gradient(to bottom, var(--rainbow-gradient));
+    background-attachment: fixed, fixed;
+    background-size: 100% 200%;
+    background-clip: content-box, border-box;
+    transform: scale(1);
+    transition: transform 0.15s ;
+    animation: moving-bg 5s linear infinite;
+    font-size: 2vmin;
+    font-family: 'Fira Mono', monospace;
+}
+
+.rainbow-btn:hover {
+    transform: scale(1.05) rotate(1deg);
+}
+
+.rainbow-btn:focus {
+    animation: moving-bg 0.2s linear infinite;
+}
+
+#scroll-btn {
+    height: 6vh;
+    width: 6vh;
+    border-radius: 10vh;
+    display: block;
+    visibility: hidden;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    color: #fff;
+    transition: opacity 0.25s, transform 0.5s;
+}
+
+#scroll-btn p {
+    transition: transform 0.5s;
+}
+
+
+#scroll-btn:hover {
+    transform: scale(1.3);
+}
+
+#scroll-btn:hover p {
+    transform: rotate(360deg);
+}
+
+
+footer{
+    position: fixed;
+    bottom: 0;
+    margin-top: 1vh;
+    width: 100%;
+}
+
+footer p {
+    text-align: center;
+    color: var(--low-font-color);
+    font-size: 10px;
+    text-shadow: 0px 0px 10px #000000;
+}
+
+/* https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp */
+/* https://dev.to/thesoreon/how-to-make-scrollbar-with-changing-gradient-on-scroll-using-10-lines-of-css-42o2 */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: grey;
+    border: 100px solid transparent;
+    border-image: linear-gradient(to bottom,
+        hsla(281, 97%, 57%, 0.6) 0%,
+        hsla(211, 97%, 58%, 0.6) 25%,
+        hsla(80, 98%, 60%, 0.6) 50%,
+        hsla(44, 99%, 61%, 0.6) 75%,
+        hsla(328, 98%, 54%, 0.6) 100%
+        );
+    border-image-slice: 1;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    box-shadow: 0px 0px 0px 100vh var(--navbar-bg-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsla(0, 0%, 10%, 0.4);
+}
+
+@keyframes moving-bg {
+    from {background-position: 200% 200%;}  
+    to {background-position: 0% 0%;}
+}
+
+.debug {
+    background:rgba(255, 0, 0, 0.4);
+}
