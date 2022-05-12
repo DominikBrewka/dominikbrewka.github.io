@@ -45,7 +45,7 @@ fetch(url)
     .then( t =>  setContent(t))
         
 function setContent(text) {
-    document.getElementById('description').innerHTML = text;
+    document.getElementById('description').insertAdjacentHTML("afterbegin", text);
     console.log(text);
 }
 
